@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nether Coordinates Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+      </style>
+</head>
+<script>
+    function syncInputs() {
+      let firstInputx = document.getElementById("inputx");
+      let secondInputx = document.getElementById("outputx");
+      
+      if (firstInputx.value !== '') {
+        secondInputx.value = Math.floor(firstInputx.value / 8);
+      }
+
+
+
+      let firstInputy = document.getElementById("inputy");
+      let secondInputy = document.getElementById("outputy");
+      
+      if (firstInputy.value !== '') {
+        secondInputy.value = Math.floor(firstInputy.value);
+      }
+
+
+
+      let firstInputz = document.getElementById("inputz");
+      let secondInputz = document.getElementById("outputz");
+      
+      if (firstInputz.value !== '') {
+        secondInputz.value = Math.floor(firstInputz.value / 8);
+      }
+    }
+
+    function syncInputsReverse() {
+      let firstInputx = document.getElementById("inputx");
+      let secondInputx = document.getElementById("outputx");
+      
+      if (secondInputx.value !== '') {
+        firstInputx.value = Math.floor(secondInputx.value * 8);
+      }
+
+
+      let firstInputy = document.getElementById("inputy");
+      let secondInputy = document.getElementById("outputy");
+      
+      if (secondInputy.value !== '') {
+        firstInputy.value = Math.floor(secondInputy.value);
+      }
+
+
+      let firstInputz = document.getElementById("inputz");
+      let secondInputz = document.getElementById("outputz");
+      
+      if (secondInputz.value !== '') {
+        firstInputz.value = Math.floor(secondInputz.value * 8);
+      }
+    }
+
+    function clean(){
+        document.getElementById("inputx").value = ""
+        document.getElementById("outputx").value = ""
+        document.getElementById("inputy").value = ""
+        document.getElementById("outputy").value = ""
+        document.getElementById("inputz").value = ""
+        document.getElementById("outputz").value = ""
+    }
+  </script>
+<body>
+<div class="main">
+    <div class="topbar">
+        <h1>Nether Calculator</h1>
+    </div>
+    <div class="app">
+        <h1 style="margin-top: 0; padding-top: 0;">Overworld coordinates</h1>
+        <div class="whole">
+            <div class="text">
+                <span><b>X</b></span>
+                <span><b>Y</b></span>
+                <span><b>Z</b></span>
+            </div>
+            <div class="fields">
+                <input type="number" id="inputx" oninput="syncInputs()">
+                <input type="number" id="inputy" oninput="syncInputs()">
+                <input type="number" id="inputz" oninput="syncInputs()">
+            </div>
+        </div>
+        <h1>Nether coordinates</h1>
+        <div class="whole">
+            <div class="text">
+                <span><b>X</b></span>
+                <span><b>Y</b></span>
+                <span><b>Z</b></span>
+            </div>
+            <div class="fields">
+                <input type="number" id="outputx" oninput="syncInputsReverse()">
+                <input type="number" id="outputy" oninput="syncInputsReverse()">
+                <input type="number" id="outputz" oninput="syncInputsReverse()">
+            </div>
+        </div>
+        <button class="button" style="margin-top: 4vh;" onclick="clean()"><b>Reset</b></button>
+    </div>
+    <div class="footer">
+        <p>
+            Nether Calculator by <a href="https://krzysui.github.io/" target="_blank">krzysui</a>. Free for any type of use.
+        </p>
+    </div>
+</div>
+<!--
+ _____                _           _   _             _                             _ 
+/  __ \              | |         | | | |           | |                           (_)
+| /  \/_ __ ___  __ _| |_ ___  __| | | |__  _   _  | | ___ __ _____   _ ___ _   _ _ 
+| |   | '__/ _ \/ _` | __/ _ \/ _` | | '_ \| | | | | |/ / '__|_  / | | / __| | | | |
+| \__/\ | |  __/ (_| | ||  __/ (_| | | |_) | |_| | |   <| |   / /| |_| \__ \ |_| | |
+ \____/_|  \___|\__,_|\__\___|\__,_| |_.__/ \__, | |_|\_\_|  /___|\__, |___/\__,_|_|
+                                             __/ |                 __/ |            
+                                            |___/                 |___/             
+-->
+</body>
+</html>
